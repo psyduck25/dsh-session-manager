@@ -1,5 +1,14 @@
 # dsh-session-manager（会话删除管理）
 
+`@psyduck25/dsh-session-manager` · [npm](https://www.npmjs.com/package/@psyduck25/dsh-session-manager) · MIT
+
+```bash
+dsh plugin add @psyduck25/dsh-session-manager
+```
+
+> 包名带 `@psyduck25/` 作用域：无作用域的 `dsh-session-manager` 在 npm 上已被其他作者占用。
+> 装好之后在设置页里看到的仍然是「会话删除管理」，包名不影响界面。
+
 DSH 本身没有「删除单个会话」：左侧列表只能归档会话，要真正清掉一条只能连整个工作区一起删。
 这个插件补的就是这一块——**按工作区列出所有会话，锁住不想删的，其余走「二次确认 → 删除缓冲站 → 到期真删」**。
 
@@ -10,7 +19,7 @@ DSH 本身没有「删除单个会话」：左侧列表只能归档会话，要�
 > lock toggle and a delete button, asks for confirmation, then moves the log into a recycle bin so the row
 > disappears from the left list. Sessions stay recoverable for a configurable window (24 h by default,
 > `0` = delete immediately) and are really removed when it expires.
-> Requires DSH `>=0.2.2-rc.3`. Install with `dsh plugin add <path-or-tarball>`.
+> Requires DSH `>=0.2.2-rc.3`. Install with `dsh plugin add @psyduck25/dsh-session-manager`.
 > See [docs/DETAIL.md](docs/DETAIL.md) for the full picture.
 
 ## 能做什么
