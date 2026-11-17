@@ -1,5 +1,5 @@
 {
-  "name": "dsh-session-manager",
+  "name": "@psyduck25/dsh-session-manager",
   "version": "0.4.0",
   "type": "module",
   "description": "Delete a single session with a two-step confirmation and a recycle bin: browse every session by workspace, lock the ones to keep, and recover deleted sessions until the configurable buffer window expires.",
@@ -12,7 +12,7 @@
     "settings"
   ],
   "license": "MIT",
-  "author": "dsh-session-manager contributors",
+  "author": "psyduck25",
   "homepage": "https://github.com/psyduck25/dsh-session-manager#readme",
   "repository": {
     "type": "git",
@@ -20,6 +20,10 @@
   },
   "bugs": {
     "url": "https://github.com/psyduck25/dsh-session-manager/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "main": "lib/index.js",
   "icon": "./icon.svg",
@@ -33,6 +37,8 @@
     "lib",
     "locale",
     "docs",
+    "assets",
+    "screenshots.json",
     "cordis.patch.yml",
     "icon.svg",
     "README.md",
