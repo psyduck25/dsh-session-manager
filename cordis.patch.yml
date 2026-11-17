@@ -2,7 +2,11 @@
 #
 # 一份 bundle 只插一行：宿主行负责本地路由和缓冲站定时器，
 # 浏览器半侧（package.json 的 dsh.client）负责设置页。
+#
+# 行 id 保持 dsh-session-manager 不变（它是插件的标识，改了会和已装副本撞车）；
+# name 必须等于 package.json 的 name —— 包已改为带作用域的 @psyduck25/dsh-session-manager，
+# 因为无作用域的 dsh-session-manager 在 npm 上已被其他作者占用。
 
 - insert:
     - id: dsh-session-manager
-      name: 'dsh-session-manager'
+      name: '@psyduck25/dsh-session-manager'
