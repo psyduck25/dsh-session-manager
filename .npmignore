@@ -1,0 +1,17 @@
+.gitignore
+.npmignore
+.git/
+.github/
+node_modules/
+*.log
+*.tgz
+.vscode/
+.idea/
+__pycache__/
+*.pyc
+dist/
+build/
+.cache/
+coverage/
+
+# the npm tarball should match exactly the "files" list in package.json

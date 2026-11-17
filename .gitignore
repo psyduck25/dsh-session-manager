@@ -1,0 +1,19 @@
+node_modules/
+*.log
+*.tgz
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# build junk that must never ship
+__pycache__/
+*.pyc
+*.pyo
+dist/
+build/
+.cache/
+coverage/

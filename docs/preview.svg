@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="300" viewBox="0 0 640 300" role="img" aria-labelledby="t">
+  <title id="t">Sessions grouped by workspace with lock and delete controls, above a recycle bin holding deleted sessions</title>
+  <defs>
+    <linearGradient id="smCard" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f4f6f8"/>
+    </linearGradient>
+    <linearGradient id="smBin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fdf6f5"/>
+      <stop offset="1" stop-color="#faeceb"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="300" fill="#eef1f4"/>
+
+  <!-- session list card -->
+  <rect x="32" y="24" width="576" height="164" rx="12" fill="url(#smCard)" stroke="#d9dee4"/>
+
+  <!-- workspace header -->
+  <path d="M50 44c0-2.2 1.8-4 4-4h9l3.6 4.2h17.8c2.2 0 4 1.8 4 4v11c0 2.2-1.8 4-4 4H54c-2.2 0-4-1.8-4-4V44Z" fill="none" stroke="#7b8794" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="105" y="49" width="74" height="7" rx="3.5" fill="#6b7785"/>
+
+  <!-- session row 1 -->
+  <rect x="46" y="72" width="548" height="34" rx="8" fill="#ffffff" stroke="#dde2e7"/>
+  <rect x="58" y="86" width="132" height="7" rx="3.5" fill="#4a5563"/>
+  <g stroke="#4a5563" stroke-width="1.9" fill="none" stroke-linecap="round">
+    <rect x="452" y="84" width="15" height="10" rx="2.5"/>
+    <path d="M455.5 84v-2.6a3.8 3.8 0 0 1 7.6 0V84"/>
+  </g>
+  <g stroke="#c2453b" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M496 83h14"/>
+    <path d="M500.5 83v-2.2c0-.9.7-1.6 1.6-1.6h3.8c.9 0 1.6.7 1.6 1.6V83"/>
+    <path d="M498.6 83l.9 9.4c.1 1 .9 1.8 1.9 1.8h3.2c1 0 1.8-.8 1.9-1.8l.9-9.4"/>
+  </g>
+
+  <!-- session row 2 (locked) -->
+  <rect x="46" y="114" width="548" height="34" rx="8" fill="#ffffff" stroke="#dde2e7"/>
+  <rect x="58" y="128" width="98" height="7" rx="3.5" fill="#4a5563"/>
+  <rect x="166" y="125" width="44" height="14" rx="4" fill="#eef1f4" stroke="#d3d9df"/>
+  <g stroke="#3f4a57" stroke-width="1.8" fill="#3f4a57" fill-opacity="0.14" stroke-linecap="round">
+    <rect x="170" y="129" width="10" height="7" rx="2"/>
+    <path d="M172.2 129v-1.8a2.8 2.8 0 0 1 5.6 0V129"/>
+  </g>
+  <g stroke="#9aa4ae" stroke-width="1.9" fill="none" stroke-linecap="round">
+    <rect x="452" y="126" width="15" height="10" rx="2.5"/>
+    <path d="M455.5 126v-2.6a3.8 3.8 0 0 1 6.9-2.1"/>
+  </g>
+  <g stroke="#c0c7ce" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M496 125h14"/>
+    <path d="M500.5 125v-2.2c0-.9.7-1.6 1.6-1.6h3.8c.9 0 1.6.7 1.6 1.6V125"/>
+    <path d="M498.6 125l.9 9.4c.1 1 .9 1.8 1.9 1.8h3.2c1 0 1.8-.8 1.9-1.8l.9-9.4"/>
+  </g>
+
+  <!-- session row 3 (confirm) -->
+  <rect x="46" y="156" width="548" height="20" rx="6" fill="#ffffff" stroke="#e6b3ae"/>
+  <rect x="58" y="162" width="112" height="7" rx="3.5" fill="#4a5563"/>
+  <rect x="330" y="160" width="112" height="12" rx="4" fill="#f7e4e2"/>
+  <rect x="456" y="160" width="58" height="12" rx="4" fill="#c2453b"/>
+  <rect x="522" y="160" width="58" height="12" rx="4" fill="#ffffff" stroke="#d3d9df"/>
+
+  <!-- recycle bin card -->
+  <rect x="32" y="200" width="576" height="76" rx="12" fill="url(#smBin)" stroke="#e3c9c6"/>
+  <g stroke="#c2453b" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 220h16"/>
+    <path d="M55 220v-2.6c0-1 .8-1.8 1.8-1.8h4.4c1 0 1.8.8 1.8 1.8V220"/>
+    <path d="M52.6 220l1 11c.1 1.2 1.1 2.1 2.3 2.1h4c1.2 0 2.2-.9 2.3-2.1l1-11"/>
+    <path d="M58.4 224.6v5M63 224.6v5"/>
+  </g>
+  <rect x="82" y="214" width="66" height="7" rx="3.5" fill="#a1544d"/>
+
+  <rect x="46" y="232" width="548" height="32" rx="8" fill="#ffffff" stroke="#e9d5d2"/>
+  <rect x="58" y="244" width="124" height="7" rx="3.5" fill="#4a5563"/>
+  <rect x="196" y="242" width="86" height="12" rx="4" fill="#f6ecea"/>
+  <g stroke="#3f7a5c" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M498 249.5a9 9 0 1 0 2.8-6.6"/>
+    <path d="M497.4 239.4v4.6h4.6"/>
+  </g>
+  <rect x="518" y="243" width="62" height="11" rx="4" fill="#eaf2ed" stroke="#cfe0d6"/>
+</svg>

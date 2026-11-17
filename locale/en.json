@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Session manager",
+    "description": "Lists every session by workspace in Settings > Session manager, with a lock toggle and a delete button on each row. Deleting asks for confirmation first, then moves the session into a recycle bin at the bottom of the page and out of the workspace list for good: the log file is moved into the recycle bin, so the session stays invisible even with archived sessions shown. Restore brings it back exactly as it was during a configurable window (24 hours by default, 0 deletes for good immediately); each row also has Delete now, which asks for confirmation once more. Expired sessions are deleted for real, logs included.",
+    "detail": "docs/DETAIL.md"
+  }
+}

@@ -1,0 +1,10 @@
+# Normalize to LF in the repository so Windows contributors do not produce
+# whole-file diffs. Checkout still uses the platform-native ending locally.
+* text=auto eol=lf
+
+*.svg text
+*.yml text
+*.md text
+*.js text eol=lf
+*.json text eol=lf
+LICENSE text
