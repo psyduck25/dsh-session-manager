@@ -13,13 +13,13 @@
   ],
   "license": "MIT",
   "author": "dsh-session-manager contributors",
-  "homepage": "https://github.com/OWNER/dsh-session-manager#readme",
+  "homepage": "https://github.com/psyduck25/dsh-session-manager#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OWNER/dsh-session-manager.git"
+    "url": "git+https://github.com/psyduck25/dsh-session-manager.git"
   },
   "bugs": {
-    "url": "https://github.com/OWNER/dsh-session-manager/issues"
+    "url": "https://github.com/psyduck25/dsh-session-manager/issues"
   },
   "main": "lib/index.js",
   "icon": "./icon.svg",
