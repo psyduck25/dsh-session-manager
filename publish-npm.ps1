@@ -40,8 +40,15 @@ if ($dirty) {
 Ok '工作区干净'
 
 $local = git rev-parse HEAD
+# 注意：不能用 2>$null 吞掉 git 的报错 —— $ErrorActionPreference='Stop' 下
+# 「没有上游分支」这类 stderr 输出仍然会中断脚本。先切回 Continue，跑完再切回来。
+$saved = $ErrorActionPreference
+$ErrorActionPreference = 'Continue'
 $remote = git rev-parse '@{u}' 2>$null
-if ($LASTEXITCODE -ne 0) {
+$hasUpstream = ($LASTEXITCODE -eq 0)
+$ErrorActionPreference = $saved
+
+if (-not $hasUpstream) {
   Write-Host '  提示: 没有配置上游分支，跳过远端同步检查' -ForegroundColor Yellow
 } elseif ($local -ne $remote) {
   Bad "本地 $($local.Substring(0,7)) 与远端 $($remote.Substring(0,7)) 不一致，先 push"
@@ -54,8 +61,14 @@ if ($LASTEXITCODE -ne 0) {
 
 Step 2 '登录 npm'
 
+$who = $null
+$saved = $ErrorActionPreference
+$ErrorActionPreference = 'Continue'
 $who = npm whoami --registry $Registry 2>$null
-if ($LASTEXITCODE -eq 0) {
+$loggedIn = ($LASTEXITCODE -eq 0)
+$ErrorActionPreference = $saved
+
+if ($loggedIn) {
   Ok "已登录为 $who"
 } else {
   Write-Host '  未登录，即将打开浏览器。登录后回到这个窗口。' -ForegroundColor Yellow
