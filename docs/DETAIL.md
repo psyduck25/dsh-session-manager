@@ -47,6 +47,20 @@ atomic (temp file + rename), and a corrupted file falls back to defaults instead
 Each trash directory also carries a `meta.json` with the original directory and file list, so the buffer
 can still be recovered from disk if `state.json` is lost.
 
+## Moving a session to another workspace
+
+Each row has a picker listing every workspace in DSH; choosing one shows an inline confirm bar, and confirming performs the move.
+
+This is a real move. Workspace membership in DSH is derived entirely from the session header's `cwd` (`workspace.sessionIds` filters by it, and `attachSession` throws on a mismatch), and the cwd is what decides where the log file sits on disk. So the plugin does two things: it rewrites the header's cwd (recompressing only the first zstd frame and leaving every later frame byte-identical), and it relocates the session folder into the project directory for the new cwd.
+
+The order is copy, verify, and only then delete the original: the copy has to read back with the new cwd and the same frame count, and any failure removes the half-made copy while leaving the original untouched.
+
+**It takes effect in the sidebar after DSH restarts**, because the workspace index is a snapshot built at startup. The plugin records the move as `pending` and completes the registration on the next start.
+
+When the system refuses a file operation, the plugin does not try to change permissions. It shows every step and both real paths, and you choose between retrying and changing the registration only. The latter leaves the cwd alone, so DSH filters the session back into No workspace on the next start — and the panel says so instead of pretending the move worked.
+
+Locked sessions cannot be moved.
+
 ## Known limitations
 
 - A session that is **running** cannot be deleted; the plugin refuses and asks you to stop it first.

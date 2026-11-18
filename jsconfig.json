@@ -12,5 +12,5 @@
     "noImplicitAny": false,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["lib/index.js", "lib/state.js", "lib/trash.js"]
+  "include": ["lib/index.js", "lib/state.js", "lib/trash.js", "lib/migrate.js"]
 }
