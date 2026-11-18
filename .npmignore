@@ -14,4 +14,8 @@ build/
 .cache/
 coverage/
 
+# 只在开发时用的类型检查配置，不进安装包
+jsconfig.json
+tsconfig.json
+
 # the npm tarball should match exactly the "files" list in package.json
