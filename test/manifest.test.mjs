@@ -93,6 +93,22 @@ for (const entry of manifest.files ?? []) {
 // 7. engines.dsh 得在，不然装到不兼容的版本上没人拦
 check('engines.dsh declared', typeof manifest.engines?.dsh === 'string', manifest.engines)
 
+// 8. 每个行内确认条都必须占整行。
+//    会话行是两列网格（minmax(0,1fr) auto）。确认条若塞进右侧那列，
+//    它本身要 220px 的文字宽度会把左列挤到几乎 0 宽，中文标题和「还剩 16 小时」
+//    这类信息就会一个字一行地竖着排。2026-11-20 删除缓冲站就是这么坏的。
+{
+  const lines = client.split('\n')
+  const offenders = []
+  lines.forEach((line, index) => {
+    if (!line.includes('style.confirmBar')) return
+    if (!line.includes("gridColumn: '1 / -1'")) offenders.push(index + 1)
+  })
+  const uses = lines.filter((line) => line.includes('style.confirmBar')).length
+  check('confirm bars are used at all', uses >= 3, uses)
+  check('every confirm bar spans the full row', offenders.length === 0, offenders)
+}
+
 const failed = checks.filter((item) => !item.ok)
 console.log(`\n${checks.length - failed.length}/${checks.length} passed`)
 if (failed.length > 0) {

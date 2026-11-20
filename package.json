@@ -1,6 +1,6 @@
 {
   "name": "@psyduck25/dsh-session-manager",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "type": "module",
   "description": "Delete a single session with a two-step confirmation and a recycle bin: browse every session by workspace, lock the ones to keep, and recover deleted sessions until the configurable buffer window expires.",
   "keywords": [
