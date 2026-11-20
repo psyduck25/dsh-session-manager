@@ -25,6 +25,12 @@ DSH 本身没有「删除单个会话」：左侧列表只能归档会话，要�
 ## 能做什么
 
 - **按工作区分组列出所有会话**，带工作区名称、路径、会话标题、最后活动时间；正在运行的会话和日志缺失的会话都有标记。
+- **每个工作区默认只展开 N 个**（默认 5 个），其余折在「展开其余 M 个会话」里，点一下就地展开、再点收起。
+  N 可在「列表显示」里改，范围 1–200。
+- **时间筛选**：可设成「只显示最近 K 天内活动过的会话」，`0` 表示不筛。
+  它和上面的数量**叠加**：时间范围内仍然最多只显示 N 个，多出来的继续折叠。
+  被时间筛掉的会单独计数说明（「另有 X 个因超出时间范围未显示」）——
+  因为这些**无论怎么点展开都不会出现**，不写清楚会让人以为按钮坏了。
 - **锁定**：点锁定后该行的删除和迁移都变灰，服务端也会拒绝（不是只靠界面禁用）。再次点击解锁。
 - **迁移到别的工作区**：每行一个下拉框，列出当前 DSH 的所有工作区；选中后行内弹出确认条，确认即迁。
   这是**真迁移**——磁盘上的日志目录会搬到新工作区对应的项目目录，会话头里的 `cwd` 也一起改写，
@@ -108,7 +114,7 @@ $DSH_HOME/sessions/<projectKey(cwd)>/<会话 id>/session.v4.jsonl.zstd
 ```json
 {
   "version": 1,
-  "settings": { "bufferHours": 24 },
+  "settings": { "bufferHours": 24, "showCount": 5, "maxAgeDays": 0 },
   "locks": ["session-…"],
   "buffer": [
     {
@@ -140,7 +146,7 @@ $DSH_HOME/sessions/<projectKey(cwd)>/<会话 id>/session.v4.jsonl.zstd
 | 路由 | 作用 |
 |---|---|
 | `POST /api/dsh-session-manager/state` | 拉全量数据（顺带补搬老条目、巡检一次缓冲站） |
-| `POST /api/dsh-session-manager/settings` | `{ bufferHours }` 或 `{ reset: true }` |
+| `POST /api/dsh-session-manager/settings` | `{ bufferHours }` / `{ showCount, maxAgeDays }` / `{ reset: true }`，字段可单独或一起提交 |
 | `POST /api/dsh-session-manager/lock` | `{ sessionId, locked }` |
 | `POST /api/dsh-session-manager/delete` | `{ sessionId, title, workspaceId, workspaceTitle }` |
 | `POST /api/dsh-session-manager/restore` | `{ sessionId }` |
