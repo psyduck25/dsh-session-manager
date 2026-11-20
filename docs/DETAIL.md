@@ -12,13 +12,9 @@ workspace, with a lock button and a delete button on each row.
 
 - **Every session, grouped by workspace** — workspace name, path, session title and last activity.
   Running sessions and sessions whose log is missing are marked.
-- **N sessions per workspace, the rest folded** — 5 by default; the rest sit behind a
+- **5 sessions per workspace, the rest folded** — the rest sit behind a
   "Show the remaining M" row that expands in place and collapses again on a second click.
-  N is configurable under List display, 1–200.
-- **Age filter** — optionally show only sessions active within the last K days; `0` disables it.
-  It stacks with the count above: within the window, still at most N per workspace. Sessions
-  dropped by the age filter are counted separately in that row, because expanding never brings
-  them back — saying so is the difference between a clear UI and a button that looks broken.
+  The 5 is fixed, matching the sidebar's own fold (``SESSION_WATERMARK_BASE = 5``).
 - **Lock** — a locked session cannot be deleted; the Host refuses too, so it is not just a disabled button.
   Click again to unlock.
 - **Delete with a second confirmation** — the row expands into a confirm bar that tells you exactly what
